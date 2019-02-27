@@ -27,6 +27,10 @@ previous_block_header = {
 }
 
 # you should edit the effective balance to be the last two digits from your user id
-effective_balance = 75
+effective_balance = 15
+
+
+
+
 
 
