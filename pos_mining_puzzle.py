@@ -29,7 +29,13 @@ previous_block_header = {
 # you should edit the effective balance to be the last two digits from your user id
 effective_balance = 15
 
-
+sk = ecdsa.SigningKey.generate(curve=ecdsa.SECP256k1)
+print(sk.to_string().hex())
+vk = sk.get_verifying_key()
+print(vk.to_string().hex())
+signature = sk.sign(b"Hello World")
+print(signature)
+print(vk.verify(signature, b"Hello World"))
 
 
 

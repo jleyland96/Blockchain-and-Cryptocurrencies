@@ -2,7 +2,7 @@ import ecdsa
 
 # put the hex of your public key in the line below
 vk_string="7f82f75b557db04fcfd756c9a458a204004f9c9b4efad71b44744bbe1631329495448d3c90738f68a6f173bd00abb95af23be502723bab23f39c9799c9a0bc14"
-vk = ecdsa.VerifyingKey.from_string(bytes.fromhex(vk_string),ecdsa.SECP256k1)
+vk = ecdsa.VerifyingKey.from_string(bytes.fromhex(vk_string), ecdsa.SECP256k1)
 
 message = b'Hello World'
 
