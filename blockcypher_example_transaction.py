@@ -39,7 +39,9 @@ def question2_3():
 	# pub_key_bytes = b'03240133fe70e9148894512329b3dcdab63d31d39fd8d33753bd94dbe94227434e'
 	# pub_key_hash = hashlib.sha256(hashlib.sha256(pub_key_bytes).digest())
 	# my_script = ("OP_DUP OP_HASH160 " + str(pub_key_hash) + " OP_EQUALVERIFY OP_CHECKSIG OP_RETURN dwmr15").encode("utf-8").hex()
-	my_script = "OP_RETURN dwmr15".encode("utf-8").hex()
+	my_hex_username = "tester".encode("utf-8").hex()
+	# 6a=OP_RETURN, 4c=OP_PUSHDATA1, 06=pushing 6 bytes, my_hex_username=dwmr15 in hex
+	my_script = '6a4c06'+my_hex_username
 	print(my_script)
 	outputs = [{'value': 0, 'script_type':"null-data", 'script':my_script}]
 
