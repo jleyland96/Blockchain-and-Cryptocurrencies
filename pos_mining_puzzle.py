@@ -40,7 +40,9 @@ print("Hello World signature:", test_signature.hex(), "\n\n")
 # print(vk.verify(test_signature, b"Hello World"), "\n")
 
 # Calculating hit value
-signature = sk.sign(b"9737957703d4eb54efdff91e15343266123c5f15aaf033292c9903015af817f1")
+# signature = sk.sign(b"9737957703d4eb54efdff91e15343266123c5f15aaf033292c9903015af817f1")
+gen_sig = previous_block_header['generationSignature'].encode("utf-8")
+signature = sk.sign(gen_sig)
 print("Signature:", signature.hex(), "\n")
 my_hash = hashlib.sha256(hashlib.sha256(signature).digest()).hexdigest()
 print("Hash:", my_hash, "\n")
