@@ -12,6 +12,7 @@ def compute_target_val(difficulty=0.001):
 
 def find_valid_nonce():
     target_val = compute_target_val(difficulty=0.001)
+    print("Target val:", target_val)
     current_nonce = 0
 
     while True:
