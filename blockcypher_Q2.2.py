@@ -32,32 +32,4 @@ def question2_2():
 	blockcypher.broadcast_signed_transaction(unsigned_tx=unsigned_tx, signatures=tx_signatures, pubkeys=public_keys, coin_symbol='btc-testnet', api_key='c1058641898a467a9420f9cbc5dadb8d')
 
 
-def question2_3():
-	inputs = [{'address': address}]
-
-	# Generate my string and proof-of-burn script
-	# pub_key_bytes = b'03240133fe70e9148894512329b3dcdab63d31d39fd8d33753bd94dbe94227434e'
-	# pub_key_hash = hashlib.sha256(hashlib.sha256(pub_key_bytes).digest())
-	# my_script = ("OP_DUP OP_HASH160 " + str(pub_key_hash) + " OP_EQUALVERIFY OP_CHECKSIG OP_RETURN dwmr15").encode("utf-8").hex()
-	my_hex_username = "dwmr15".encode("utf-8").hex()
-	# 6a=OP_RETURN, 4c=OP_PUSHDATA1, 06=pushing 6 bytes, my_hex_username=dwmr15 in hex
-	my_script = '6a4c06'+my_hex_username
-	print(my_script)
-	outputs = [{'value': 0, 'script_type':"null-data", 'script':my_script}]
-
-	# The next line creates the transaction shell, which is as yet unsigned
-	unsigned_tx = blockcypher.create_unsigned_tx(inputs=inputs, outputs=outputs, coin_symbol='btc-testnet', api_key='c1058641898a467a9420f9cbc5dadb8d')
-	print(unsigned_tx)
-	print(len(unsigned_tx))
-
-	# Now list the private and public keys corresponding to the inputs
-	private_keys=[private_key]
-	public_keys=[public_key]
-
-	# Next create the signatures
-	tx_signatures = blockcypher.make_tx_signatures(txs_to_sign=unsigned_tx['tosign'], privkey_list=private_keys, pubkey_list=public_keys)
-	# Finally push the transaction and signatures onto the network
-	blockcypher.broadcast_signed_transaction(unsigned_tx=unsigned_tx, signatures=tx_signatures, pubkeys=public_keys, coin_symbol='btc-testnet', api_key='c1058641898a467a9420f9cbc5dadb8d')
-
-
-question2_3()
+question2_2()
