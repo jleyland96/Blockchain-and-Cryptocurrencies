@@ -1,6 +1,5 @@
 import hashlib
 import ecdsa
-import time
 
 # An the previous block header - do not change any fields
 previous_block_header = {
@@ -30,31 +29,30 @@ previous_block_header = {
 # Change your effective balance
 effective_balance = 15
 
-# Generating my own key pair, signing a message (VERFIEID)
+# --- Generating key pair, signing Hello World ---
 sk = ecdsa.SigningKey.generate(curve=ecdsa.SECP256k1)
 print("Private key:", sk.to_string().hex(), "\n")
 vk = sk.get_verifying_key()
 print("Public key:", vk.to_string().hex(), "\n")
-test_signature = sk.sign(b"Hello World")
-print("Hello World signature:", test_signature.hex(), "\n\n")
+test_signature = sk.sign(b"Hello world")
+print("Hello world signature:", test_signature.hex(), "\n\n")
 # print(vk.verify(test_signature, b"Hello World"), "\n")
 
-# Calculating hit value
+# --- Calculating hit value ---
 # signature = sk.sign(b"9737957703d4eb54efdff91e15343266123c5f15aaf033292c9903015af817f1")
 gen_sig = previous_block_header['generationSignature'].encode("utf-8")
 signature = sk.sign(gen_sig)
-print("Signature:", signature.hex(), "\n")
+print("Signature for calculating hit value:", signature.hex(), "\n")
 my_hash = hashlib.sha256(hashlib.sha256(signature).digest()).hexdigest()
-print("Hash:", my_hash, "\n")
+print("Hash of signature:", my_hash, "\n")
 hit_value = my_hash[0:16]
 print("Hit value hex:", hit_value)
 print("Hit value int:", int(hit_value, 16), "\n")
 
-# Calculating time to mine. 
-# Valid when Hit_Val < BaseTarget*Seconds*Balance
-# So, calculate when Hit_Val / (BaseTarget*Balance) < Seconds
+# --- Calculating time to mine ---
+# Valid when Hit_Val < BaseTarget*Seconds*Balance. So, calculate when Hit_Val / (BaseTarget*Balance) < Seconds
 base_target = previous_block_header["baseTarget"]
-seconds = int(hit_value,16)/(int(str(base_target),16)*effective_balance)
+seconds = int(hit_value, 16)/(int(str(base_target), 16)*effective_balance)
 print("Seconds required >" + str(seconds))
 
 

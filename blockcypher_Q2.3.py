@@ -27,7 +27,6 @@ def question2_3():
 	# The next line creates the transaction shell, which is as yet unsigned
 	unsigned_tx = blockcypher.create_unsigned_tx(inputs=inputs, outputs=outputs, coin_symbol='btc-testnet', api_key='c1058641898a467a9420f9cbc5dadb8d')
 	print(unsigned_tx)
-	print(len(unsigned_tx))
 
 	# Now list the private and public keys corresponding to the inputs
 	private_keys=[private_key]

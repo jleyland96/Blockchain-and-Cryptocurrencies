@@ -1,0 +1,35 @@
+Question 1.1
+	UserID: dwmr15
+	Block target value: 
+	Nonce int value: 553137
+	Number of double-hashes and time taken: 553138 double hashes, took 9.2717 seconds on MIRA
+	Estimate of time taken for difficulty 1: 
+	Estimate of time taken for difficulty 7454968648263: 
+
+
+Question 1.2
+	ECDSA Public Key hex: 
+	56bab87d26a2a95f0201a3ebc15b8269a316ad7f23e483ef6324242f36ff1b5a8329a28dfc72625cffae2498d0281b37d0261b8e614c62ef00c79e7d664850fb
+
+	Hello World Signature hex: 
+	aec300825740810dc91c57ab5bfe948f07298c0d49327e91435b88b3194f5ce388dcbe6fbbd3709b093a3546c265fa70a79751a9643b62b96b0eb7ebcff8e087
+
+	Signature for calculating Hit Value hex:
+	28ca79f8a6ddb473a454e7004246024bff9ef7b9a5fbbedb7a25fc5761592180782a281949a944805bf485aeb5787b64dc5653e0bba8a18b802f431853708c09
+
+	Hit value hex: 9fbb4912564cb381
+
+	Time taken to forge a block: >0.5863218947252244
+
+
+Question 2.2
+	UserID: dwmr15
+	My address: mo94jePN64JaJPXa87SQQqxUT1SbgKcE66
+	Target address: mpamtqLA66JFVSQNDaPHZ5xMiCz6T2MeNn
+	Transaction ID: 71233edb0a780d3ade9415b3273952d7b45d50dd685474d52b86d7ece79a5226
+	URL: https://chain.so/tx/BTCTEST/71233edb0a780d3ade9415b3273952d7b45d50dd685474d52b86d7ece79a5226
+
+Question 2.3
+	Transaction ID: d89e26fef66caafa896b9e7c3fed2b29460b6bda21149f4d04e9861662bfb6df
+	URL: https://chain.so/tx/BTCTEST/d89e26fef66caafa896b9e7c3fed2b29460b6bda21149f4d04e9861662bfb6df
+	Hex script: 6a4c06746573746572

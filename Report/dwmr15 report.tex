@@ -3,6 +3,7 @@
 \usepackage{float}
 \usepackage[margin=1.0in]{geometry}
 \usepackage{seqsplit}
+\usepackage{amsmath}
 
 \begin{document}
 	
@@ -12,8 +13,7 @@
 	\maketitle
 	
 	\section*{1.1 - Proof of Work}
-	\subsection*{My User ID}
-	dwmr15
+	\paragraph*{My User ID -- } dwmr15
 	
 	\subsection*{The block target value in Hex}
 	0x3e7fc180000000000000000000000000000000000000000000000000000
@@ -27,44 +27,87 @@
 	This took 9.2717 seconds.
 	
 	\subsection*{Estimated time at Difficulty 1}
-	TODO
+	My hash power is approximately $\frac{\#double\_hashes}{time taken} = \frac{553138}{9.2717} = 59658.7465082$ hashes/s. \newline
+	
+	At difficulty 1, the target value is the initial target value: 
+	
+	\seqsplit{0x00000000ffff0000000000000000000000000000000000000000000000000000}. \newline 
+	
+	This has 8 leading zeros in Hex, so 32 leading zeros in binary. This means that it will require approximately $2^{32}$ hashes to mine a valid block. \newline
+	
+	Using the earlier-calculated hash power, I can calculate how many seconds it would take to make this many hashes (and thus mine a valid block). \newline
+	
+	Seconds required = $\frac{2^{32}}{My Hash Power} = 71992.248369$ seconds \newpage
 	
 	\subsection*{Estimated time at Difficulty 7,454,968,648,263}
-	TODO
+	To calculate the target value at this difficulty, we use the equation $Current Target = \frac{Initial Target}{Difficulty}$. This results in: \seqsplit{0x25c1910000015800000000000000000000000000000000}. \newline
+	
+	Target values are 64 hex digits which means that this target value (46 hex digits) has $18*4+2=74$ leading zeros. \newline
+	
+	Using the same idea as in the previous question, the seconds required to mine a valid block would therefore be $\frac{2^{74}}{My Hash Power} = 2.6238194 \times 10^{17}$ seconds.
+	
 	
 	\newpage
 	
 	
 	\section*{1.2 - Proof of Stake}
 	\subsection*{ECDSA public key in Hex}
-	\seqsplit{7f7170c84020cc8b8ed97c05250bf578aa1883dc3ce88e1b07e856b6bd16af22454fe273aad9a9255d3904799fd69ea62a1d95754df25961a7bc13b55e88a05b}
+	\seqsplit{0x56bab87d26a2a95f0201a3ebc15b8269a316ad7f23e483ef6324242f36ff1b5a8329a28dfc72625cffae2498d0281b37d0261b8e614c62ef00c79e7d664850fb}
 	
 	\subsection*{Signature of 'Hello World' in Hex}
-	\seqsplit{a211248cc339071521bf75d574c1d13f130188f4e0568658f3cc3d9435c12c395fe0ee452bca54adb0574c11f674bfeec1ad5491eddd9c532daf2fd8b6f33729}
+	\seqsplit{0xaec300825740810dc91c57ab5bfe948f07298c0d49327e91435b88b3194f5ce388dcbe6fbbd3709b093a3546c265fa70a79751a9643b62b96b0eb7ebcff8e087}
 	
-	\subsection*{Signature used in calculating hit value}
-	\seqsplit{be5ce7290429304758cc2f23271b7173460b3e8b63ab46a3e23080f83eb85e228d99ecb1adc02f1da11ad410915d36ae212d486b9e21f1af7581fd92fb8dcdf1}
+	\subsection*{Signature used in calculating hit value in Hex}
+	\seqsplit{0x28ca79f8a6ddb473a454e7004246024bff9ef7b9a5fbbedb7a25fc5761592180782a281949a944805bf485aeb5787b64dc5653e0bba8a18b802f431853708c09}
 	
 	\subsection*{My hit value in Hex}
-	0xa53726fef23c2e53
+	0x9fbb4912564cb381
 	
 	\subsection*{Time to forge a new block}
-	$>$0.6065 seconds
+	For proof-of-stake, each account calculates its own target value, T, where $T = T_b \times S \times B_e$ ($T_b$=the base target value, $S=$the time since the last block in seconds and $B_e$=the effective balance of your account.) \newline
 	
-	TODO: Working out
+	We can mine a block when our Hit Value is less than $T$. Our Hit Value is calculated by signing the previous block generation signature with our private key, hashing the result, and taking the first 8 bytes of this result. This means, using the above equation for our target value, we can mine a block when $Hit\_Val < T_b \times S \times B_e$. We can rearrange this to find the seconds since the last block that we can mine a new block. \newline
 	
+	My effective balance is 15 (from my username). We can get the base target directly from a field in the previous block header. To calculate my hit value, I generated an ECDSA key pair, signed the previous block generation signature (found in the block header) with my private key, double-hashed the result and then took the first 8 bytes of this hash result. \newline
+	
+	By rearranging the equation, I can expect to mine a block after $S$ seconds, where: \newline
+	
+	$S > \frac{Hit\_Val}{Base\_Target \times EffectiveBalance}$ \newline
+	
+	$S > \frac{\text{0x}9fbb4912564cb381}{1229782938247303*15}$ = 0.5863 \newline
+	
+	Which means that we can expect to mine a new block after \textbf{0.5863 seconds.}
 	\newpage
 	
 	
 	\section*{2.1 - Interacting with the Bitcoin Testnet}
-	\subsection*{My User ID}
-	dwmr15
+	\paragraph{My User ID -- } dwmr15
 	
-	\subsection*{Links for the three chosen transactions}
-	TODO
+	\subsubsection*{Transaction 1 - Newly generated coin}
+	URL: https://chain.so/tx/BTC/57d5dd5915bf174eff72a4f3189e3b7d32a9e769817243dc72f86abe7b1b2a0c \newline
 	
-	\subsection*{Transaction explanations}
-	TODO
+	This transaction is the first in block 566,015. This transaction represents the creation of new bitcoins; the coinbase transaction. All of the output goes to a specific address: \seqsplit{(3KF9nXowQ4asSGxRRzeiTpDjMuwM2nypAN)} and 0.0 bitcoins goes to a nonstandard address.
+	
+	On analysis of the actual input and output scripts, we can see that the input was the 'coinbase', as we would expect as this is where newly generated coins come from. The transaction has a field 'received\_from' which is null, since this is the first transaction of this block, the coins are generated rather than redeemed from a previous transaction. 
+	
+	The first output is to transfer these coins (the block reward) from the coinbase to the address mentioned above, who must be the successful miner of these new coins. The other output is of exactly 0.0 bitcoins to a nulldata address using the OP\_RETURN operation. This marks the transaction as invalid, which allows the coin generation transaction to have extra data attached to it, in this case, a nonsense string: "?!??\$?=???\textasciitilde P??]? ???\}? ?????????\&!p"
+	
+	
+	\subsubsection*{Transaction 2 - Witness}
+	URL: https://chain.so/tx/BTC/6d1687d24d2077f0b37cdc812cb676cf4cc9e20d44435aa9e91af15abb0b457a \newline
+	
+	This transaction has only 1 input but 11 outputs. Approximately 1.664 bitcoins are being sent from one input address to 11 different outputs. Furthermore, this transaction has witness data in the input script; neither of the other 2 transactions that I have described have any witness data.
+	
+	The transaction type is a Pay-to-script-hash, as we can tell from the structure of the majority of the output scripts: 'OP\_HASH160 $<$20-byte-hash$>$ OP\_EQUAL'. The output script for output number 8, however, is a pay-to-address script.
+	
+	\subsubsection*{Transaction 3 - Same input and output address}
+	URL: https://chain.so/tx/BTC/09f752fd0ffff026d6d977ea1fa8243072a83b4edc299336b377f574f38e7156 \newline
+	
+	This example is a strange transaction. There are two input addresses to the transaction, totalling up to approximately 1.6873 bitcoins, with the vast majority (all except 0.00000456 bitcoins) coming from address 12fVdGzZpVoe4E9MUtCzXa4NNjZ6rTGKLL. This most likely means that one user is spending some bitcoins, but to do so he must put together bitcoins from different past transactions. Interestingly, the output is all sent to this same address (as two separate outputs), along with a 3rd output script using OP\_RETURN to attach some additional data (a message) to the transaction.
+	
+	My theory is that one user is trying to gather all of his bitcoins into one of his addresses, but once fees are deducted he has actually made a loss, with the total output being approximately 1.6870 bitcoins.
+	
+	This transaction is a pay to address transaction, as we can tell from the output scripts being in the form 'OP\_DUP OP\_HASH160 $<$Pub key hash $>$ OP\_EQUALVERIFY OP\_CHECKSIG'.
 	
 	\newpage
 	
@@ -89,16 +132,68 @@
 	https://chain.so/tx/BTCTEST/d89e26fef66caafa896b9e7c3fed2b29460b6bda21149f4d04e9861662bfb6df
 	
 	\subsection*{Script in Hex}
-	6a4c06746573746572
+	0x6a4c06746573746572
 	
 	\subsection*{How I put the script together}
-	TODO
+	To put my script together, I first took a look at the example proof-of-burn transaction provided. We specify the script in the outputs of our transaction, so I looked through the raw transaction data and located a hex script in the output where the value being sent was 0. This is the script we need to replicate. \newline
+	
+	Firstly, as in any proof-of-burn transaction, we need to start with OP\_RETURN (0x6a). Then, as in this example transaction (and as mentioned in the Bitcoin Script Wiki), we need to follow this up with an OP\_PUSH\_DATA1 operation (0x4c), to indicate that we would like to attach some data to the transaction. We indicate in the next byte how many bytes we are attaching (0x06, since our username hex encoding is 6 bytes long), and then the hex encoding of our username itself (0x6a4c06746573746572). \newline
+	
+	Putting all of this together creates a valid script as you can see above and inspect at the URL provided.
 	
 	\newpage
 	
 	
 	\section*{3 - Investment in BTC, NXT or Gold?}
+	I will recommend the investment of Gold, on the basis that it more appropriately holds key properties of any currency that you would want to invest in, and eventually spend/exchange in the future. \newline
 	
+	One of the most important of these properties is that your currency can be used to \textbf{store value} until it is needed. Gold holds a relatively consistent value, only varying by approximately 28\% in the last 3 years between a maximum and minimum values of \pounds 1060 and \pounds 827 respectively. 1 BTC was worth approximately \$20K at the start of 2018 but is now only worth \$4K, an 80\% decrease in value, and NXT has followed a similar trend, falling from \$2.14 to \$0.15 per coin in just the last 3 months. The volatility in the value of these cryptocurrencies provides enough of a risk to disuade investment in them. \newline
+	
+	Secondly, we want our currency to be \textbf{accessible and profitable}. Bitcoin mining requires significant computational power. With a standard CPU setup achieving approximately 1MH/s, it would take millions of year to mine even one Bitcoin block. Alternatively, if we bought an ASIC, making up a larger proportion of the hash power we could mine more successfully. However, the energy required to run such hardware is higher than the average block rewards you would achieve, completely nullifying the possibility of investing in Bitcoin unless you can become part of a mining pool - however this contributes to the centralization of Bitcoin which goes against the very purpose of the cryptocurrency. Contrary to this, we can instantly purchase Gold online extremely easily (e.g. bullionbypost.co.uk), making it much more accessible than Bitcoin. 
+	
+	NXT's major downfall is that its market cap is currently only \$25million. Therefore, even if we were to own every NXT coin (in which case the currency would die out), we are limited to our returns. Compare this to Gold's rumoured \$7 trillion market cap; there Gold has the potential to be much more profitable than NXT. \newline
+	
+	Finally, you would ideally want investments that can be \textbf{readily exchanged} for goods and services. Gold dealers exist everywhere, especially online, where we can readily exchange Gold for GBP (or any Fiat currency) which can be spent anywhere. Bitcoin has a vastly technical underpinning which complicates transactions and exchanges, reducing its exchangability. Although there is increasing support for spending Bitcoin (e.g. Overstock.com), you cannot say Bitcoin can be readily exchanged. NXT is synonymous here, increasing but limited support which does not come close to the readiness of Gold. \newline
+	
+	Furthermore, Gold can be \textbf{held physically}, whereas with Cryptocurrencies we have a record tied to our online address. This is a much more unreliable store, as simply forgetting your password to your online wallet could lead to you losing your entire investment, as one user found out, losing \$30,000 with the wallet service Trezor. \newline
+	
+	These key properties combined lead me to conclude that Gold would be the most appropriate for investment.
+	\newline \newline \newline
+	
+%	Plan (recommend Gold):
+%	\begin{itemize}
+%		\item Value changes too much. So, might not be able to 'store value until needed'. Gold: £1060/£827 in last 3 years, NXT:\$2.14 to \$0.15 just Dec-Feb, BTC:\$20K to \$4K between Jan2018 and now.
+%		\item Can be readily exchanged for goods and services. (gold dealers everywhere, Bitcoin/NXT support only for the technical). Cryptocurrencies throughput of transactions is limited, and with their increasing popularity, might be an issue. Also, limited supply. 21 million BTC, 1 billion NXT.
+%		\item Systems are not perfect. BTC pools ruining the idea of decentralization, NXT distribution concerns.
+%		\item BTC hard to mine. Requires huge investment of power. NXT not readily spendable, centralized from the beginning. Address collisions can happen. \newline
+%	\end{itemize}
+%	
+%	
+%	Money:
+%	\begin{itemize}
+%		\item Can be readily exchanged for goods and services
+%		\item Can be used to store value until it is needed
+%		\item Can be used to record accounts/debts/credits
+%		\item Fungibility (two coins are equivalent)
+%		\item Non-forgeability 
+%		\item Durability
+%		\item Recognizability \newline
+%	\end{itemize}
+%
+%	Decentralized systems must be:
+%	\begin{itemize}
+%		\item Quick and efficient throughput of transactions
+%		\item Can scale globally
+%		\item Facilitates addition of new features \newline
+%	\end{itemize}
+%
+%	Negatives of cryptocurrencies:
+%	\begin{itemize}
+%		\item Pools lead to centralization
+%		\item Transaction fees, time to verify transactions, ease of use
+%		\item Value varies hugely
+%	\end{itemize}
+
 	
 	
 	
