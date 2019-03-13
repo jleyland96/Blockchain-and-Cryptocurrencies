@@ -22,7 +22,7 @@
 	553137
 	
 	\subsection*{Number of double-hashes to find the valid nonce and the time taken}
-	My method was to increment the nonce value by 1, double-hash the block and then check if the block is valid. Since my valid nonce value was 553137, this means I made 553138 double-hashes. 
+	My method was to increment the nonce value by 1, double-hash the block and then check if the block is valid. Since my valid nonce value was 553137 and I started with the nonce value 0, this means I made 553138 double-hashes (or 1106276 single SHA256 hashes). 
 	
 	This took 9.2717 seconds.
 	
@@ -51,17 +51,19 @@
 	
 	
 	\section*{1.2 - Proof of Stake}
-	\subsection*{ECDSA public key in Hex}
-	\seqsplit{0x56bab87d26a2a95f0201a3ebc15b8269a316ad7f23e483ef6324242f36ff1b5a8329a28dfc72625cffae2498d0281b37d0261b8e614c62ef00c79e7d664850fb}
+	\textbf{NOTE:}, when checking these values in \textit{verify.py}, please remove the space in the Hex string that I added so that the string would break onto a new line.
 	
-	\subsection*{Signature of 'Hello World' in Hex}
-	\seqsplit{0xaec300825740810dc91c57ab5bfe948f07298c0d49327e91435b88b3194f5ce388dcbe6fbbd3709b093a3546c265fa70a79751a9643b62b96b0eb7ebcff8e087}
+	\subsection*{ECDSA public key in Hex}
+	\seqsplit{0xf13d1d92e0bffcdbee0309ada8f882572842e8b3f639704605872fde6770e552e26e62c5724c14a3deaa260593db03227d8830179529f73da8704a3e1abedc2c}
+	
+	\subsection*{Signature of 'Hello world' in Hex}
+	\seqsplit{0xe5a25870b1b53a5294761fcb52bf64ee163794ff43d288fcd5f593fa83b552a7862a0accf7cc5247f8a38b2d13c68f82aedb6cb5067ee2944c7552a621276349}
 	
 	\subsection*{Signature used in calculating hit value in Hex}
-	\seqsplit{0x28ca79f8a6ddb473a454e7004246024bff9ef7b9a5fbbedb7a25fc5761592180782a281949a944805bf485aeb5787b64dc5653e0bba8a18b802f431853708c09}
+	\seqsplit{0x08d7cbf6883ca98981602dbd41380c02a3360c82e45922b9bda0be30da51caaa2c6162aae7778a30e1ac768ac6b86a3deefb6ebabcda7fb5269fdfdb75c24b26}
 	
 	\subsection*{My hit value in Hex}
-	0x9fbb4912564cb381
+	0xd5aac7b8d1f04130
 	
 	\subsection*{Time to forge a new block}
 	For proof-of-stake, each account calculates its own target value, T, where $T = T_b \times S \times B_e$ ($T_b$=the base target value, $S=$the time since the last block in seconds and $B_e$=the effective balance of your account.) \newline
@@ -74,9 +76,9 @@
 	
 	$S > \frac{Hit\_Val}{Base\_Target \times EffectiveBalance}$ \newline
 	
-	$S > \frac{\text{0x}9fbb4912564cb381}{1229782938247303*15}$ = 0.5863 \newline
+	$S > \frac{\text{0x}d5aac7b8d1f04130}{1229782938247303*15}$ = 0.7843 \newline
 	
-	Which means that we can expect to mine a new block after \textbf{0.5863 seconds.}
+	Which means that we can expect to mine a new block after \textbf{0.7843 seconds.}
 	\newpage
 	
 	
