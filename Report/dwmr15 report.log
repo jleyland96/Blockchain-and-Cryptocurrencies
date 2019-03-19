@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2018.3.12)  11 MAR 2019 20:24
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2018.3.12)  13 MAR 2019 11:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -293,11 +293,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 45--46
  []
 
 [2]
-Underfull \hbox (badness 10000) in paragraph at lines 67--68
-
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 69--70
 
  []
@@ -322,60 +317,60 @@ Underfull \hbox (badness 10000) in paragraph at lines 77--78
 
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 79--80
+
+ []
+
 [3]
-Overfull \hbox (27.83185pt too wide) in paragraph at lines 87--88
+Overfull \hbox (27.83185pt too wide) in paragraph at lines 89--90
 \OT1/cmr/m/n/10.95 URL: https://chain.so/tx/BTC/57d5dd5915bf174eff72a4f3189e3b7
 d32a9e769817243dc72f86abe7b1b2a0c 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 87--88
+Underfull \hbox (badness 10000) in paragraph at lines 89--90
 
  []
 
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 93.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 95.
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 93.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 95.
 
-Overfull \hbox (30.8735pt too wide) in paragraph at lines 97--98
+Overfull \hbox (30.8735pt too wide) in paragraph at lines 99--100
 \OT1/cmr/m/n/10.95 URL: https://chain.so/tx/BTC/6d1687d24d2077f0b37cdc812cb676c
 f4cc9e20d44435aa9e91af15abb0b457a 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 97--98
+Underfull \hbox (badness 10000) in paragraph at lines 99--100
 
  []
 
 
-Overfull \hbox (17.49017pt too wide) in paragraph at lines 104--105
+Overfull \hbox (17.49017pt too wide) in paragraph at lines 106--107
 \OT1/cmr/m/n/10.95 URL: https://chain.so/tx/BTC/09f752fd0ffff026d6d977ea1fa8243
 072a83b4edc299336b377f574f38e7156 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 104--105
+Underfull \hbox (badness 10000) in paragraph at lines 106--107
 
  []
 
 [4]
-Overfull \hbox (41.67143pt too wide) in paragraph at lines 122--123
+Overfull \hbox (41.67143pt too wide) in paragraph at lines 124--125
 \OT1/cmr/m/n/10.95 https://chain.so/tx/BTCTEST/71233edb0a780d3ade9415b3273952d7
 b45d50dd685474d52b86d7ece79a5226 
  []
 
 [5]
-Overfull \hbox (24.63809pt too wide) in paragraph at lines 132--133
+Overfull \hbox (24.63809pt too wide) in paragraph at lines 134--135
 \OT1/cmr/m/n/10.95 https://chain.so/tx/BTCTEST/d89e26fef66caafa896b9e7c3fed2b29
 460b6bda21149f4d04e9861662bfb6df 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 138--139
-
  []
 
 
@@ -383,18 +378,18 @@ Underfull \hbox (badness 10000) in paragraph at lines 140--141
 
  []
 
-[6]
-Underfull \hbox (badness 10000) in paragraph at lines 148--149
+
+Underfull \hbox (badness 10000) in paragraph at lines 142--143
 
  []
 
-
+[6]
 Underfull \hbox (badness 10000) in paragraph at lines 150--151
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 154--155
+Underfull \hbox (badness 10000) in paragraph at lines 152--153
 
  []
 
@@ -409,27 +404,32 @@ Underfull \hbox (badness 10000) in paragraph at lines 158--159
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 160--162
+Underfull \hbox (badness 10000) in paragraph at lines 160--161
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 160--162
+Underfull \hbox (badness 10000) in paragraph at lines 162--164
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 160--162
+Underfull \hbox (badness 10000) in paragraph at lines 162--164
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 162--164
 
  []
 
 [7] (./dwmr15 report.aux) ) 
 Here is how much of TeX's memory you used:
- 2678 strings out of 492995
- 37173 string characters out of 6132704
+ 2680 strings out of 492995
+ 37197 string characters out of 6132704
  111843 words of memory out of 5000000
- 6200 multiletter control sequences out of 15000+600000
- 10004 words of font info for 36 fonts, out of 8000000 for 9000
+ 6201 multiletter control sequences out of 15000+600000
+ 10350 words of font info for 37 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  39i,6n,32p,890b,189s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2017/texmf-dist/fonts/type1/publ
@@ -443,12 +443,13 @@ ts/cm/cmr17.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts
 /cm/cmr6.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm
 /cmr8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cm
 sy10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cms
-y8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmu10
-.pfb>
-Output written on "dwmr15 report.pdf" (7 pages, 161677 bytes).
+y8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmti1
+0.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmu10.
+pfb>
+Output written on "dwmr15 report.pdf" (7 pages, 171642 bytes).
 PDF statistics:
- 76 PDF objects out of 1000 (max. 8388607)
- 54 compressed objects within 1 object stream
+ 80 PDF objects out of 1000 (max. 8388607)
+ 57 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
