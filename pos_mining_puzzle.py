@@ -43,7 +43,7 @@ print("Hello world signature:", test_signature.hex(), "\n\n")
 gen_sig = previous_block_header['generationSignature'].encode("utf-8")
 signature = sk.sign(gen_sig)
 print("Signature for calculating hit value:", signature.hex(), "\n")
-my_hash = hashlib.sha256(hashlib.sha256(signature).digest()).hexdigest()
+my_hash = hashlib.sha256(signature).hexdigest()
 print("Hash of signature:", my_hash, "\n")
 hit_value = my_hash[0:16]
 print("Hit value hex:", hit_value)
@@ -52,7 +52,11 @@ print("Hit value int:", int(hit_value, 16), "\n")
 # --- Calculating time to mine ---
 # Valid when Hit_Val < BaseTarget*Seconds*Balance. So, calculate when Hit_Val / (BaseTarget*Balance) < Seconds
 base_target = previous_block_header["baseTarget"]
-seconds = int(hit_value, 16)/(int(str(base_target), 16)*effective_balance)
+print("Int hit val:", int(hit_value,16))
+print("Str base target", str(base_target))
+print("Int base target", int(str(base_target)))
+print("Effective balance", effective_balance)
+seconds = int(hit_value, 16)/(int(str(base_target))*effective_balance)
 print("Seconds required >" + str(seconds))
 
 
